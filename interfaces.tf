@@ -1,5 +1,5 @@
 resource "volterra_network_interface" "eth1" {
-  name      = "zg01-eth1"
+  name      = "marcel-zg01-eth1"
   namespace = "system"
 
   ethernet_interface {

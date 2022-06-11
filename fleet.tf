@@ -5,19 +5,19 @@ resource "volterra_fleet" "zg01" {
 
   interface_list {
     interfaces {
-      name      = "zg01-eth1"
+      name      = "marcel-zg01-eth1"
       namespace = "system"
     }
   }
 
   network_connectors {
     namespace = "system"
-    name = "zg01-internal-gateway"
+    name = "marcel-zg01-internet"
   }
 
   network_connectors {
     namespace = "system"
-    name = "zg01-global"
+    name = "marcel-zg01-global"
   }
 
 
