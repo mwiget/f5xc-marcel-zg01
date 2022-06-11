@@ -6,3 +6,4 @@ if [ ! -z "$VOLT_API_CA_CERT" ]; then
   export VOLT_API_CA_CERT=$PWD/.public_server_ca.crt
 fi
 echo VOLT_API_P12_FILE=$VOLT_API_P12_FILE
+grep set-env.sh ~/.bashrc || echo "source $PWD/set-env.sh" >> ~/.bashrc
