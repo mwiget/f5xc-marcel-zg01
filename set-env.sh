@@ -9,3 +9,4 @@ fi
 echo VOLT_API_P12_FILE=$VOLT_API_P12_FILE
 echo VOLT_API_URL=$VOLT_API_URL
 grep set-env.sh ~/.bashrc >/dev/null || echo "source $PWD/set-env.sh" >> ~/.bashrc
+cp .vimrc ~
