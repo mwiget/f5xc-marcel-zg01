@@ -2,6 +2,20 @@
 
 Terraform manifests to provision F5XC IGW CE in my lab.
 
+```
+      Internet
+          |
++---------+---------+
+|       eth0        |
+|    marcel-zg01    |
+|  eth1  eth2  eth3 |
++---+---------------+
+    |
+    |
+ ---+-----------
+  192.168.40/24
+```
+
 ## F5XC API Credentials
 
 Credentials can be stored in persistent gitpod env variables. 
