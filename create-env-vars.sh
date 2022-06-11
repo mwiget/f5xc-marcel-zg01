@@ -1,13 +1,15 @@
 #!/bin/bash
-VOLT_API_P12_FILE=$1
-VES_P12_PASSWORD=$2
-VOLT_API_CA_CERT=$3
+VOLT_API_URL=$1
+VOLT_API_P12_FILE=$2
+VES_P12_PASSWORD=$3
+VOLT_API_CA_CERT=$4
 if [ -z "$VES_P12_PASSWORD" ]; then
-  echo "$0 <volt_api_p12_file> ves_p12_password [<volt_api_ca_cert>]"
+  echo "$0 <api_url> <volt_api_p12_file> ves_p12_password [<volt_api_ca_cert>]"
   exit 1
 fi
 
 echo "saving credentials to gitpod env ..."
+gp env VOLT_API_URL=$VOLT_API_URL
 gp env VOLT_API_P12_FILE=$(base64 -w0 $VOLT_API_P12_FILE) >/dev/null
 gp env VES_P12_PASSWORD=$VES_P12_PASSWORD >/dev/null
 if [ ! -z "$VOLT_API_CA_CERT" ]; then
