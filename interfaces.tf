@@ -1,3 +1,14 @@
+resource "volterra_network_interface" "eth0" {
+  name      = "marcel-zg01-eth0"
+  namespace = "system"
+
+  ethernet_interface {
+    device = "eth0"
+    is_primary = true
+    monitor_disabled = true    
+  }
+}
+
 resource "volterra_network_interface" "eth1" {
   name      = "marcel-zg01-eth1"
   namespace = "system"

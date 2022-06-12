@@ -3,21 +3,34 @@ resource "volterra_fleet" "zg01" {
   namespace   = "system"
   fleet_label = "marcel-zg01"
 
+  outside_virtual_network {
+    name = "marcel-zg01-outside"
+    namespace = "system"
+  }
+  inside_virtual_network {
+    name = "marcel-zg01-inside"
+    namespace = "system"
+  }
+
   interface_list {
     interfaces {
-      name      = "marcel-zg01-eth1"
+      name = volterra_network_interface.eth0.name
+      namespace = "system"
+    }
+    interfaces {
+      name = volterra_network_interface.eth1.name
       namespace = "system"
     }
   }
 
   network_connectors {
     namespace = "system"
-    name = "marcel-zg01-internet"
+    name = volterra_network_connector.internet.name
   }
 
   network_connectors {
     namespace = "system"
-    name = "marcel-zg01-global"
+    name = volterra_network_connector.global.name
   }
 
 

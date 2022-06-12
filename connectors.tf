@@ -1,5 +1,5 @@
 resource "volterra_network_connector" "internet" {
-  name      = "marcel-zg01-internet"
+  name      = "marcel-zg01-internet-nc"
   namespace = "system"
 
   sli_to_slo_snat {
@@ -9,16 +9,14 @@ resource "volterra_network_connector" "internet" {
 }
 
 resource "volterra_network_connector" "global" {
-  name      = "marcel-zg01-global"
+  name      = "marcel-zg01-global-nc"
   namespace = "system"
 
   sli_to_global_dr {
     global_vn {
       namespace = "system"
-      name = volterra_virtual_network.global.name
+      name = "volterra-global-lab"
     }
   }
   disable_forward_proxy = true
-
-  depends_on = [ volterra_virtual_network.global ]
 }
