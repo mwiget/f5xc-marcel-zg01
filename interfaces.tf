@@ -1,6 +1,7 @@
 resource "volterra_network_interface" "eth0" {
   name      = "marcel-zg01-eth0"
   namespace = "system"
+  description = "WAN interface, connected to provider Datawire"
 
   ethernet_interface {
     device = "eth0"
@@ -12,6 +13,7 @@ resource "volterra_network_interface" "eth0" {
 resource "volterra_network_interface" "eth1" {
   name      = "marcel-zg01-eth1"
   namespace = "system"
+  description = "LAN interface"
 
   ethernet_interface {
     device = "eth1"
