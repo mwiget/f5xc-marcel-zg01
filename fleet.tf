@@ -5,11 +5,11 @@ resource "volterra_fleet" "zg01" {
   description = "Marcel's DC in Zug Switzerland"
 
   outside_virtual_network {
-    name = "marcel-zg01-outside"
+    name = volterra_virtual_network.outside.name
     namespace = "system"
   }
   inside_virtual_network {
-    name = "marcel-zg01-inside"
+    name = volterra_virtual_network.inside.name
     namespace = "system"
   }
 
