@@ -33,6 +33,10 @@ resource "volterra_fleet" "zg01" {
     name = volterra_network_connector.global.name
   }
 
+  network_firewall {
+    namespace = "system"
+    name = volterra_network_firewall.nfw.name
+  }
 
   no_bond_devices          = true
   no_dc_cluster_group      = true
