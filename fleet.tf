@@ -1,42 +1,42 @@
 resource "volterra_fleet" "zg01" {
   name        = "marcel-zg01"
-  namespace   = "system"
+  namespace   = var.namespace
   fleet_label = "marcel-zg01"
   description = "Marcel's DC in Zug Switzerland"
 
   outside_virtual_network {
     name = volterra_virtual_network.outside.name
-    namespace = "system"
+    namespace   = var.namespace
   }
   inside_virtual_network {
     name = volterra_virtual_network.inside.name
-    namespace = "system"
+    namespace   = var.namespace
   }
 
   interface_list {
     interfaces {
       name = volterra_network_interface.eth0.name
-      namespace = "system"
+      namespace   = var.namespace
     }
     interfaces {
       name = volterra_network_interface.eth1.name
-      namespace = "system"
+      namespace   = var.namespace
     }
   }
 
   network_connectors {
-    namespace = "system"
     name = volterra_network_connector.internet.name
+    namespace   = var.namespace
   }
 
   network_connectors {
-    namespace = "system"
     name = volterra_network_connector.global.name
+    namespace   = var.namespace
   }
 
   network_firewall {
-    namespace = "system"
     name = volterra_network_firewall.nfw.name
+    namespace   = var.namespace
   }
 
   no_bond_devices          = true

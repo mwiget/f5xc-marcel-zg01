@@ -1,6 +1,6 @@
 resource "volterra_network_connector" "internet" {
   name      = "marcel-zg01-internet-nc"
-  namespace = "system"
+  namespace   = var.namespace
 
   sli_to_slo_snat {
     default_gw_snat = true
@@ -10,11 +10,11 @@ resource "volterra_network_connector" "internet" {
 
 resource "volterra_network_connector" "global" {
   name      = "marcel-zg01-global-nc"
-  namespace = "system"
+  namespace = var.namespace
 
   sli_to_global_dr {
     global_vn {
-      namespace = "system"
+      namespace = var.namespace
       name = "volterra-global-lab"
     }
   }

@@ -1,16 +1,16 @@
 resource "volterra_network_firewall" "nfw" {
   name      = "marcel-zg01-firewall"
-  namespace = "system"
+  namespace = var.namespace
 
   # disable_network_policy = true
   active_network_policies {
     network_policies {
       name = "block-unauthorized-countries"
-      namespace = "system"
+      namespace = var.namespace
     }
     network_policies {
       name = "allow-all"
-      namespace = "system"
+      namespace = var.namespace
     }
   }
 
@@ -18,7 +18,7 @@ resource "volterra_network_firewall" "nfw" {
   active_forward_proxy_policies {
     forward_proxy_policies {
       name = "allow-all-urls"
-      namespace = "system"
+      namespace = var.namespace
     }
   }
 
