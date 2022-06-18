@@ -34,6 +34,7 @@ resource "volterra_network_interface" "eth1" {
         "3c:ec:ef:43:1e:91" = "192.168.40.166"
         "8c:04:ba:de:08:c0" = "192.168.40.8"
         "00:0c:29:e4:97:f6" = "192.168.40.21"
+        "00:0c:29:89:30:10" = "192.168.40.181"
       }
       automatic_from_start = true
     }
